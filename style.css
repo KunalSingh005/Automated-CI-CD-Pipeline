@@ -132,6 +132,11 @@ body {
     background-color: rgba(100, 255, 218, 0.1);
 }
 
+.hero-links {
+  display: flex; /* This aligns the buttons in a row */
+  gap: 20px;     /* This creates a 20px space between them */
+}
+
 /* --- General Section Styling --- */
 section {
     padding: 100px 0;
