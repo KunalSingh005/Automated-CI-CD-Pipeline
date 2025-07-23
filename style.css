@@ -338,3 +338,79 @@ footer {
 .footer-links a:hover {
     color: var(--accent);
 }
+
+/* ========================================= */
+/* Responsive Design (YAHAN SE PASTE KAREIN) */
+/* ========================================= */
+
+/* Tablet aur chhote desktop ke liye (For screens smaller than 992px) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 1.5rem; /* Side se thodi kam space */
+    }
+
+    .about-content {
+        grid-template-columns: 1fr; /* Image aur text ko ek ke neeche ek laayein */
+        gap: 30px;
+    }
+
+    .about-image {
+        margin: 0 auto; /* Image ko center mein rakhein */
+    }
+}
+
+/* Mobile phones ke liye (For screens smaller than 768px) */
+@media (max-width: 768px) {
+    section {
+        padding: 60px 0; /* Sections ke beech mein space kam karein */
+    }
+
+    .hero-title {
+        font-size: clamp(35px, 10vw, 50px); /* Hero title ka font chhota karein */
+    }
+
+    .hero-subtitle {
+        font-size: clamp(25px, 8vw, 40px); /* Subtitle ka font chhota karein */
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+        margin-left: 1rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+
+    .timeline::after {
+        left: 10px; /* Experience timeline ko adjust karein */
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .timeline-dot {
+        left: 1px;
+    }
+}
+
+/* Chhote mobile phones ke liye (For screens smaller than 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem; /* Side se aur kam space */
+    }
+
+    .hero-links {
+        flex-direction: column; /* Buttons ko ek ke neeche ek laayein */
+        align-items: flex-start; /* Buttons ko left align karein */
+    }
+    
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .footer-links a {
+        margin: 0 0.8rem;
+    }
+}
