@@ -61,11 +61,22 @@ body {
     text-decoration: none;
     border: 2px solid var(--accent);
     padding: 5px 10px;
+    z-index: 101; /* Isko upar rakhein */
+}
+
+/* Hamburger Icon Styling */
+.hamburger {
+    display: none; /* Desktop par hide rahega */
+    font-size: 1.8rem;
+    color: var(--accent);
+    cursor: pointer;
+    z-index: 101;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .nav-menu li {
@@ -81,6 +92,35 @@ body {
 
 .nav-menu a:hover {
     color: var(--accent);
+}
+
+/* Yahan se Responsive Menu ki Magic shuru hoti hai */
+@media (max-width: 768px) {
+    .nav-menu {
+        /* Mobile par menu ko poori screen par failana */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Shuru mein screen ke bahar rakho */
+        width: 70%;
+        height: 100vh;
+        background-color: var(--navy);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: right 0.4s ease-in-out;
+    }
+
+    .nav-menu.active {
+        right: 0; /* 'active' class lagne par screen ke andar laao */
+    }
+
+    .nav-menu li {
+        margin: 0;
+    }
+
+    .hamburger {
+        display: block; /* Mobile par Hamburger Icon dikhao */
+    }
 }
 
 /* --- Hero Section --- */
