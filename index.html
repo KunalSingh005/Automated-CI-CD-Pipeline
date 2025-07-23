@@ -171,6 +171,30 @@
             </div>
         </div>
     </footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('#nav-menu-list');
+        const navLinks = document.querySelectorAll('.nav-menu a');
 
+        hamburger.addEventListener('click', () => {
+            // Hamburger icon ko "bars" se "times" (cross) mein badlo
+            hamburger.querySelector('i').classList.toggle('fa-times');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            
+            // Menu ko open/close karo
+            navMenu.classList.toggle('active');
+        });
+
+        // Jab kisi link par click ho, toh menu band ho jaaye
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    hamburger.querySelector('i').classList.remove('fa-times');
+                    hamburger.querySelector('i').classList.add('fa-bars');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
