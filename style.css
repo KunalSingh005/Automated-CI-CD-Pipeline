@@ -37,6 +37,10 @@ body {
     padding: 0 2rem;
 }
 
+/* ========================================= */
+/* Final Navbar Code (Desktop + Mobile)      */
+/* ========================================= */
+
 /* --- Navbar --- */
 .navbar {
     background-color: rgba(10, 25, 47, 0.85);
@@ -61,21 +65,28 @@ body {
     text-decoration: none;
     border: 2px solid var(--accent);
     padding: 5px 10px;
-    z-index: 101; /* Isko upar rakhein */
+    z-index: 101; /* Isko hamesha upar rakhein */
 }
 
-/* Hamburger Icon Styling */
+/* --- Hamburger Icon (Mobile ke liye) --- */
 .hamburger {
-    display: none; /* Desktop par hide rahega */
+    display: none; /* Desktop par isko chupana hai */
     font-size: 1.8rem;
     color: var(--accent);
     cursor: pointer;
     z-index: 101;
+    transition: transform 0.3s ease-in-out;
 }
 
+.hamburger.active {
+    transform: rotate(90deg); /* Jab menu khule, icon ko ghuma do */
+}
+
+
+/* --- Menu Links --- */
 .nav-menu {
     list-style: none;
-    display: flex;
+    display: flex; /* Desktop par links ko line mein rakho */
     align-items: center;
 }
 
@@ -94,35 +105,45 @@ body {
     color: var(--accent);
 }
 
-/* Yahan se Responsive Menu ki Magic shuru hoti hai */
+
+/* --- Responsive Magic (Yahan se sab theek hoga) --- */
 @media (max-width: 768px) {
+    
+    /* Step 1: Menu links ko hide karo */
     .nav-menu {
-        /* Mobile par menu ko poori screen par failana */
-        position: fixed;
-        top: 0;
-        right: -100%; /* Shuru mein screen ke bahar rakho */
-        width: 70%;
-        height: 100vh;
-        background-color: var(--navy);
+        display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         gap: 2rem;
+
+        position: fixed;
+        top: 0;
+        right: -100%; /* By default, menu ko screen ke bahar rakho */
+        
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        
+        background-color: var(--navy);
+        box-shadow: -10px 0px 30px -15px rgba(2,12,27,0.7);
         transition: right 0.4s ease-in-out;
     }
 
+    /* Step 2: Jab 'active' class lage, tab menu dikhao */
     .nav-menu.active {
-        right: 0; /* 'active' class lagne par screen ke andar laao */
+        right: 0; /* Menu ko screen ke andar le aao */
     }
 
-    .nav-menu li {
-        margin: 0;
+    .nav-menu a {
+        font-size: 1.2rem;
     }
-
+    
+    /* Step 3: Hamburger icon ko dikhao */
     .hamburger {
-        display: block; /* Mobile par Hamburger Icon dikhao */
+        display: block;
     }
 }
-
 /* --- Hero Section --- */
 #hero {
     min-height: 100vh;
