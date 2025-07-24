@@ -28,22 +28,22 @@ jobs:
 
     # Job ke steps
     steps:
-      # Step 1: Code ko checkout karna (repository ka code download karna)
+      # Step 1: Code ko checkout karna (Updated to v4)
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Step 2: GitHub Pages ke liye setup karna
+      # Step 2: GitHub Pages ke liye setup karna (Updated to v5)
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5
 
-      # Step 3: Website ke content ko upload karna
+      # Step 3: Website ke content ko upload karna (Updated to v3)
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           # Root directory se upload karo
           path: '.'
 
-      # Step 4: Website ko deploy karna
+      # Step 4: Website ko deploy karna (Updated to v4)
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
