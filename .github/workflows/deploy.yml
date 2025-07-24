@@ -1,0 +1,49 @@
+# Is workflow ka naam
+name: Deploy Portfolio to GitHub Pages
+
+# Yeh pipeline kab chalegi?
+# Jab bhi 'main' branch mein koi 'push' karega
+on:
+  push:
+    branches:
+      - main
+
+# Permissions set karna
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pipeline ke jobs (kaam)
+jobs:
+  # Ek hi job hai jiska naam 'deploy' hai
+  deploy:
+    # Environment set karna
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    # Yeh job kaunsi machine par chalegi?
+    runs-on: ubuntu-latest
+
+    # Job ke steps
+    steps:
+      # Step 1: Code ko checkout karna (repository ka code download karna)
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Step 2: GitHub Pages ke liye setup karna
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # Step 3: Website ke content ko upload karna
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Root directory se upload karo
+          path: '.'
+
+      # Step 4: Website ko deploy karna
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
