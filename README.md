@@ -4,7 +4,7 @@
 
 This repository contains the source code for my personal portfolio website. More importantly, it demonstrates a complete, automated CI/CD (Continuous Integration/Continuous Deployment) pipeline using **GitHub Actions**.
 
-**[➡️ View Live Website](https://kunalsingh005.github.io/portfolio-website-cicd/)**
+**[➡️ View Live Website](https://kunalsingh005.github.io/Kunal_Singh/)**
 
 ---
 
